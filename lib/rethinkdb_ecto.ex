@@ -139,6 +139,10 @@ defmodule RethinkDB.Ecto do
     |> execute_query(repo, {:insert, fields}, returning)
   end
 
+  def insert(repo, meta, fields, autogenerate_id, returning, options) do
+    insert(repo, meta, fields, returning, options)
+  end
+
   def insert_all(repo, meta, _header, fields, returning, _options) do
     NormalizedQuery.insert_all(meta, fields)
     |> execute_query(repo, {:insert_all, fields}, returning)
